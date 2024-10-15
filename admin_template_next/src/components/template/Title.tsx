@@ -7,8 +7,8 @@ interface TitleProps {
 export default function Title(props: TitleProps) {
   return (
     <div>
-      <h1 className="title">
-        {props.titulo}
+      <h1 className="font-black bold">
+        <strong>{props.titulo}</strong>
       </h1>
 
       <h2 className="subtitle">
