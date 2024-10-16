@@ -14,7 +14,7 @@ export default function Layout(props: LayoutProps) {
         <SideBar />
         <div className="
             flex flex-col w-full 
-            p-7 bg-gray-300 
+            p-7 bg-gray-800
             :bg-gray-800">
           <Header titulo={props.titulo} subtitulo={props.subtitulo}></Header>
           <Content>

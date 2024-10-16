@@ -1,4 +1,3 @@
-
 interface TitleProps {
     titulo: string
     subtitulo: string
@@ -7,8 +6,8 @@ interface TitleProps {
 export default function Title(props: TitleProps) {
   return (
     <div>
-      <h1 className="font-black bold">
-        <strong>{props.titulo}</strong>
+      <h1 className="font-black font-bold">
+        {props.titulo}
       </h1>
 
       <h2 className="subtitle">
