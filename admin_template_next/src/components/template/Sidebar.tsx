@@ -17,7 +17,7 @@ export default function SideBar() {
         <MenuItem url="/setting" texto="Setting" icone={IconeSettings} />
         <MenuItem url="/notification" texto="Notif." icone={IconeNotification} />
       </ul>
-      <ul><MenuItem url="/notification" texto="Exit" icone={IconeLogout} /></ul>
+      <ul><MenuItem onClick={() => console.log('logout')} texto="Exit" icone={IconeLogout} /></ul>
     </aside>
   )
 }
