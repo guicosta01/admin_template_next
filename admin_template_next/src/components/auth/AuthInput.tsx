@@ -11,7 +11,7 @@ interface AuthInputProps {
 export default function AuthInput(props: AuthInputProps) {
   return (
     <div className="flex flex-col mt-4">
-        <label>{props.label}</label>
+        <label className="text-white">{props.label}</label>
         <input 
             type={props.tipo ?? 'text'}
             value = {props.valor}

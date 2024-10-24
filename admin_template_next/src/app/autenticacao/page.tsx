@@ -9,7 +9,12 @@ export default function Autenticacao() {
     const [modo, setModo] = useState<'login' | 'cadastro'>('login');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const [erro, setErro] = useState('');
 
+    function exibirErro(msg, tempoEmSegundos = 5){
+        setErro(msg);
+        setTimeout(() => setErro(''), tempoEmSegundos * 1000)
+    }
 
     function submeter(){
         if(modo === 'login'){
@@ -21,11 +26,23 @@ export default function Autenticacao() {
 
 
     return (
-        <div className='flex flex-col h-screen items-center justify-center'>
-            <div className='w-1/2'>
-                <h1 className='text-xl font-bold mb-5'>
+        <div className='flex h-screen items-center justify-center'>
+            <div className='hidden md:block md:w-1/2 lg:w-2/3'>
+                <img src="/images/dino.jpg" alt="Imagem" className='h-screen w-full object-cover text-white'/>
+            </div>
+            <div className='m-10 w-full md:w-1/2'>
+                <h1 className='text-xl font-bold mb-5 text-white'>
                     {modo === 'login' ? 'Entre com sua conta' : 'Cadastre-se no site'}
                 </h1>
+
+                {erro ? (
+                    <div className='text-red-400 flex items-center justify-center'>
+                        <span>{erro}</span>
+                    </div>
+                ):false}
+                
+
+
                 <AuthInput
                     label="Email"
                     tipo='email'
@@ -58,6 +75,25 @@ export default function Autenticacao() {
                     Entrar com o Google
                 </button>
 
+                {modo === 'login' ? (
+                    <p className='mt-8 text-white'>
+                        Novo por aqui?
+                        <a onClick={() => setModo('cadastro')} className='
+                            text-blue-500 hover:text-blue-400 font-semibold cursor-pointer m-3
+                        '>
+                            Crie uma conta gratuitamente
+                        </a>
+                    </p>
+                ) : (
+                    <p className='mt-8 text-white'>
+                        Já faz parte da nossa comunidade?
+                        <a onClick={() => setModo('login')} className='
+                            text-blue-500 hover:text-blue-400 font-semibold cursor-pointer m-3
+                        '>
+                            Entre com suas credenciais
+                        </a>
+                    </p>
+                )}
                 
             </div>
         </div>
